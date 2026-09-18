@@ -26,9 +26,13 @@ Regras técnicas dos SVGs:
 - **Fundo próprio escuro** (`#05050A`) com cantos arredondados e o resto transparente —
   por isso funcionam igual no tema claro e escuro, sem precisar de `<picture>`.
 - **Sem recurso externo** (o GitHub serve a imagem por proxy; fonte/imagem externa não carrega):
-  - Títulos em fonte display são **convertidos em `<path>`** no build (não dependem de fonte).
-  - Texto corrido usa uma fonte mono **embutida como subset base64** (`@font-face` data URI),
-    com fallback `ui-monospace, Consolas, monospace`.
+  **todo texto é convertido em `<path>`** no build (`opentype.js` 1.3.4 — a 2.0 quebra com a
+  Michroma). Nenhum `<text>` nos SVGs: renderização idêntica em qualquer máquina, sem fonte embutida.
+- **Ornamentos são formas**, não caracteres: ✦ e ◉ não existem nas fontes, então estrelas e o
+  ponto de status são `<path>`/`<circle>`.
+- **Celular:** os cards ficam 2 por linha (prioridade desktop — onde recrutador lê). No celular
+  o GitHub reduz a imagem e o texto do card fica pequeno; por isso cada `<img>` tem `alt` com o
+  pitch completo, e os títulos dos cards usam corpo grande para continuarem legíveis.
 - **`prefers-reduced-motion`**: dentro do SVG, uma media query desliga as animações.
 - **Orçamento de tamanho:** hero ≤ 150 KB; demais ≤ 60 KB cada.
 - Todo `<img>` no README tem `alt` descritivo (acessibilidade e fallback se a imagem falhar).
@@ -77,31 +81,34 @@ Conteúdo principal em inglês + uma linha em português no `about`.
    | Inteiro Teor | OCR + AI text correction for notary offices | Tesseract.js · Azure Vision · Flask | inteiro-teor.vercel.app |
 
 4. **`> stack/`** (`assets/stack.svg`): chips cromados — TypeScript, JavaScript, Node.js, NestJS,
-   Next.js, React, Vue, PostgreSQL, Prisma, Python, Figma. *(Figma: confirmar com o Felipe.)*
+   Next.js, React, Vue, PostgreSQL, Prisma, Python, Figma.
 5. **`> contact/`**: bloco pronto, **comentado** (`<!-- -->`) até existirem os links.
 6. **Rodapé** (`assets/footer.svg`): marquee `✦ NOW LOADING THE FUTURE ✦ BUILT BY JAW ✦`.
 
 Layout em Markdown/HTML permitido pelo GitHub: `<p align="center">`, `<a><img width="49%"></a>`
-para os pares de cards (no celular o GitHub reduz proporcionalmente; texto dos cards
-dimensionado para continuar legível a ~180 px de largura).
+para os pares de cards.
 
 ## 5. Estrutura do repositório
 
 ```
 F4NT45TIC0/
-  README.md
-  assets/            SVGs finais (commitados — o README aponta para eles)
-    hero.svg about.svg h-projects.svg stack.svg footer.svg
+  README.md          GERADO pelo build a partir de tools/data/profile.mjs
+  assets/            SVGs GERADOS (commitados — o README aponta para eles)
+    hero.svg about.svg h-projects.svg h-stack.svg stack.svg footer.svg
     cards/{dublaai,erp-otica,24a0,impostor,atletica,inteiro-teor}.svg
   tools/             gerador Node (não vai para o README)
-    build.mjs        monta os SVGs a partir de templates + dados
+    data/profile.mjs todo o conteúdo (textos, cards, links, stack) — fonte única
+    lib/             text.mjs (texto→path), svg.mjs (primitivas), render.mjs (manifesto + orçamento)
+    components/      hero, about, heading, card, stack, footer, readme
+    build.mjs        escreve assets/ e README.md
+    preview.mjs      gera preview.html (gitignorado) via `gh api markdown` — o render real do GitHub
     fonts/           Michroma e Space Mono (OFL) + licenças
-    package.json     opentype.js (texto→path), subset-font (subset base64)
+    test/            node:test
   docs/design.md     este documento
 ```
 
-O gerador existe porque títulos precisam virar `<path>` e a fonte mono precisa de subset —
-fazer à mão seria frágil. Os SVGs gerados são commitados; o GitHub não roda nada.
+O gerador existe porque o texto precisa virar `<path>` — fazer à mão seria frágil. Conteúdo
+muda em **um** lugar (`profile.mjs`) e README + SVGs saem consistentes. O GitHub não roda nada.
 
 ## 6. Perfil e repositórios (ações externas)
 
@@ -121,6 +128,7 @@ Toda ação que publica ou altera conta é executada **só após OK explícito d
 ## 7. Verificação
 
 1. Cada SVG aberto no navegador interno: renderiza, anima, respeita reduced-motion, sem requisição externa.
-2. README renderizado localmente numa página que imita a coluna do GitHub (claro, escuro e 375 px).
+2. README renderizado pelo próprio GitHub (`gh api markdown`) numa página local com o CSS oficial
+   (`github-markdown-css`), alternando claro, escuro e 375 px.
 3. Depois do push: conferir o perfil real no navegador (claro/escuro/mobile) e o peso dos assets.
 4. Conferir que nenhum dado privado do ERP (código, cliente, credencial) aparece — só stack e papel.
