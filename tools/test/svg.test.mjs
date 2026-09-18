@@ -29,3 +29,13 @@ test('starfield is deterministic per seed', () => {
   assert.notEqual(a, starfield({ seed: 2, count: 5, w: 100, h: 100 }));
   assert.equal(a.match(/<path/g).length, 5);
 });
+
+test('starfield keeps stars out of the avoid zone', () => {
+  const svg = starfield({ seed: 3, count: 40, w: 100, h: 100, rMin: 1, rMax: 1, avoid: { x: 20, y: 20, w: 60, h: 60 } });
+  assert.equal(svg.match(/<path/g).length, 40);
+  for (const m of svg.matchAll(/d="M([\d.]+) ([\d.]+)/g)) {
+    const x = Number(m[1]);
+    const y = Number(m[2]) + 1;
+    assert.ok(!(x >= 20 && x <= 80 && y >= 20 && y <= 80), `star at ${x},${y}`);
+  }
+});

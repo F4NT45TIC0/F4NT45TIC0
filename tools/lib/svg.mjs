@@ -56,13 +56,22 @@ function mulberry32(seed) {
   };
 }
 
-export function starfield({ seed, count, w, h, rMin = 1.5, rMax = 5 }) {
+function overlaps(cx, cy, r, zone) {
+  return zone && cx + r > zone.x && cx - r < zone.x + zone.w && cy + r > zone.y && cy - r < zone.y + zone.h;
+}
+
+export function starfield({ seed, count, w, h, rMin = 1.5, rMax = 5, avoid = null }) {
   const rand = mulberry32(seed);
   let out = '';
   for (let i = 0; i < count; i++) {
-    const cx = round1(rand() * w);
-    const cy = round1(rand() * h);
-    const r = round1(rMin + rand() * (rMax - rMin));
+    let cx;
+    let cy;
+    let r;
+    do {
+      cx = round1(rand() * w);
+      cy = round1(rand() * h);
+      r = round1(rMin + rand() * (rMax - rMin));
+    } while (overlaps(cx, cy, r, avoid));
     const delay = round1(rand() * 3);
     out += `<path class="tw" style="animation-delay:${delay}s" d="${star(cx, cy, r)}" fill="${i % 3 === 0 ? C.cyan : C.text}"/>`;
   }
