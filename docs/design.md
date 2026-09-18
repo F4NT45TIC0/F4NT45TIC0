@@ -28,6 +28,9 @@ Regras técnicas dos SVGs:
 - **Sem recurso externo** (o GitHub serve a imagem por proxy; fonte/imagem externa não carrega):
   **todo texto é convertido em `<path>`** no build (`opentype.js` 1.3.4 — a 2.0 quebra com a
   Michroma). Nenhum `<text>` nos SVGs: renderização idêntica em qualquer máquina, sem fonte embutida.
+- **Atlas de glifos** para texto corrido: cada glifo é desenhado uma vez em `<defs>` e
+  reposicionado com `<use>` (o `about.svg` caiu de 115 KB para 36 KB). Títulos cromados
+  continuam como um `<path>` único, para o degradê atravessar a palavra inteira.
 - **Ornamentos são formas**, não caracteres: ✦ e ◉ não existem nas fontes, então estrelas e o
   ponto de status são `<path>`/`<circle>`.
 - **Celular:** os cards ficam 2 por linha (prioridade desktop — onde recrutador lê). No celular
