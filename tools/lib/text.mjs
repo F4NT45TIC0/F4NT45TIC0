@@ -48,15 +48,40 @@ export function textPath(str, { x = 0, y = 0, anchor = 'start', ...opts }) {
   return { d, width, x0 };
 }
 
-export function richLine(segments, { x = 0, y = 0, anchor = 'start', ...opts }) {
+// A glyph atlas maps "<font><size>-<glyphIndex>" to path data drawn at the origin, so a
+// glyph that repeats is stored once in <defs> and placed with <use> — body text would
+// otherwise blow the asset budget.
+export function createAtlas() {
+  return new Map();
+}
+
+export function atlasDefs(atlas) {
+  return [...atlas].filter(([, d]) => d).map(([id, d]) => `<path id="${id}" d="${d}"/>`).join('');
+}
+
+export function textUse(str, { atlas, x = 0, y = 0, anchor = 'start', font = 'mono', ...opts }) {
+  const { glyphs, offsets, width } = layout(str, { font, ...opts });
+  const x0 = anchor === 'middle' ? x - width / 2 : anchor === 'end' ? x - width : x;
+  const svg = glyphs.map((g, i) => {
+    const id = `${font}${opts.size}-${g.index}`;
+    if (!atlas.has(id)) atlas.set(id, g.getPath(0, 0, opts.size).toPathData(1));
+    if (!atlas.get(id)) return '';
+    return `<use href="#${id}" x="${Math.round((x0 + offsets[i]) * 10) / 10}" y="${y}"/>`;
+  }).join('');
+  return { svg, width, x0 };
+}
+
+// Without an atlas each part carries path data (`d`); with one, a <use> run (`svg`).
+export function richLine(segments, { x = 0, y = 0, anchor = 'start', atlas = null, ...opts }) {
   const gap = opts.tracking ?? 0;
   const widths = segments.map((s) => measure(s.t, { ...opts, font: s.font ?? opts.font }));
   const width = widths.reduce((a, b) => a + b, 0) + gap * (segments.length - 1);
   let cx = anchor === 'middle' ? x - width / 2 : anchor === 'end' ? x - width : x;
   const parts = segments.map((s, i) => {
-    const { d } = textPath(s.t, { ...opts, font: s.font ?? opts.font, x: cx, y });
+    const run = { ...opts, font: s.font ?? opts.font, x: cx, y };
+    const part = atlas ? { svg: textUse(s.t, { ...run, atlas }).svg } : { d: textPath(s.t, run).d };
     cx += widths[i] + gap;
-    return { d, fill: s.fill };
+    return { ...part, fill: s.fill };
   });
   return { parts, width };
 }
