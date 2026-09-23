@@ -85,7 +85,7 @@ Conteúdo principal em inglês + uma linha em português no `about`.
 
 4. **`> stack/`** (`assets/stack.svg`): chips cromados — TypeScript, JavaScript, Node.js, NestJS,
    Next.js, React, Vue, PostgreSQL, Prisma, Python, Figma.
-5. **`> contact/`**: bloco pronto, **comentado** (`<!-- -->`) até existirem os links.
+5. **Contato e índice em texto:** e-mail público e GitHub logo após o hero; abaixo dos cards, cada projeto tem descrição e links diretos para código e demo. Isso mantém o overview legível no celular e acessível mesmo quando os SVGs não carregam.
 6. **Rodapé** (`assets/footer.svg`): marquee `✦ NOW LOADING THE FUTURE ✦ BUILT BY JAW ✦`.
 
 Layout em Markdown/HTML permitido pelo GitHub: `<p align="center">`, `<a><img width="49%"></a>`

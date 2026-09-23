@@ -30,6 +30,10 @@ test('README links live cards and leaves the private ERP unlinked', () => {
   assert.ok(!/<a [^>]*>\s*<img src="assets\/cards\/erp-otica\.svg"/.test(md));
 });
 
-test('README keeps the contact block commented out', () => {
-  assert.match(files['README.md'], /<!-- CONTACT[\s\S]*-->/);
+test('README exposes working contact and project links as text', () => {
+  const md = files['README.md'];
+  assert.match(md, new RegExp(`mailto:${profile.contact.email}`));
+  assert.match(md, /### Explore the work/);
+  for (const c of profile.cards.filter((c) => c.repo)) assert.ok(md.includes(`[code](${c.repo})`), c.slug);
+  assert.match(md, /Co-built, private repository/);
 });

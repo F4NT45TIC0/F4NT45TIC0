@@ -9,13 +9,12 @@ function cardCell(c) {
   return c.href ? `<a href="${c.href}">${tag}</a>` : tag;
 }
 
-const CONTACT = `<!-- CONTACT — descomentar quando os links existirem (troque as URLs)
-<p align="center">
-  <a href="https://www.linkedin.com/in/SEU-PERFIL">LinkedIn</a> ·
-  <a href="mailto:SEU-EMAIL">E-mail</a> ·
-  <a href="https://www.instagram.com/SUA-MARCA">JAW</a>
-</p>
--->`;
+function projectIndex(cards) {
+  return ['### Explore the work', ...cards.map((c) => {
+    const links = [c.repo && `[code](${c.repo})`, c.href?.startsWith('https://github.com/') ? null : c.href && `[live demo](${c.href})`].filter(Boolean);
+    return `- **${c.title}** — ${c.pitch.join(' ')} ${links.length ? `(${links.join(' · ')})` : ''}`.trim();
+  })].join('\n');
+}
 
 export function readme(p) {
   const pairs = [];
@@ -24,12 +23,13 @@ export function readme(p) {
   }
   return [
     block(img('assets/hero.svg', p.hero.alt)),
+    block(`${esc(p.intro)}<br/><a href="mailto:${esc(p.contact.email)}">✉ Email</a> · <a href="${esc(p.contact.github)}">⌘ GitHub</a>`),
     block(img('assets/about.svg', p.about.alt)),
     block(img('assets/h-projects.svg', 'Projects')),
     ...pairs,
+    projectIndex(p.cards),
     block(img('assets/h-stack.svg', 'Stack')),
     block(img('assets/stack.svg', `Stack: ${p.stack.join(', ')}`)),
-    CONTACT,
     block(img('assets/footer.svg', p.footer.join(' · '))),
   ].join('\n\n') + '\n';
 }
