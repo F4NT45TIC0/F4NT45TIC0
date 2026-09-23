@@ -1,11 +1,11 @@
 import { esc } from '../lib/svg.mjs';
-import { cardAlt } from './card.mjs';
+import { cardAlt, cardAsset } from './card.mjs';
 
 const img = (src, alt, width = '100%') => `<img src="${src}" width="${width}" alt="${esc(alt)}" />`;
 const block = (inner) => `<p align="center">\n  ${inner}\n</p>`;
 
 function cardCell(c) {
-  const tag = img(`assets/cards/${c.slug}.svg`, cardAlt(c), '49%');
+  const tag = img(cardAsset(c), cardAlt(c), '49%');
   return c.href ? `<a href="${c.href}">${tag}</a>` : tag;
 }
 

@@ -19,34 +19,34 @@ export const profile = {
   },
   cards: [
     {
-      slug: 'atletica', title: 'ATLÉTICA FIPP', tag: 'STARRED', starred: true,
+      slug: 'atletica', asset: 'atletica-featured', title: 'ATLÉTICA FIPP', tag: 'STARRED', starred: true,
       href: 'https://github.com/F4NT45TIC0/atletica-fipp-site',
       pitch: ['Sales management system for a', 'university athletics club.'],
       chips: ['Next.js', 'TypeScript', 'Supabase'],
     },
     {
-      slug: 'shopflow', title: 'SHOPFLOW AUTOMATOR', titleSize: 25,
+      slug: 'shopflow', asset: 'shopflow-featured', title: 'SHOPFLOW AUTOMATOR', titleSize: 25,
       tag: 'STARRED', starred: true, href: null,
       pitch: ['Local toolkit for TikTok Shop content', 'planning and video workflows. Private.'],
       chips: ['JavaScript', 'Scheduling', 'Local-first'],
     },
     {
-      slug: 'ora-digital', title: 'ORADIGITAL', tag: 'STARRED', starred: true, href: null,
+      slug: 'ora-digital', asset: 'ora-digital-featured', title: 'ORADIGITAL', tag: 'STARRED', starred: true, href: null,
       pitch: ['Private brand website with custom', 'interactions, sound and visual design.'],
       chips: ['Vite', 'JavaScript', 'CSS'],
     },
     {
-      slug: 'dublaai', title: 'DUBLA AÍ', tag: 'LIVE', href: 'https://dublaai-web.vercel.app',
+      slug: 'dublaai', asset: 'dublaai-selected', title: 'DUBLA AÍ', tag: 'LIVE', href: 'https://dublaai-web.vercel.app',
       pitch: ['In-browser dubbing studio with an honest,', 'acoustic score. Pure DSP, no backend.'],
       chips: ['TypeScript', 'DSP', 'MFCC · DTW'],
     },
     {
-      slug: '24a0', title: '24A0', tag: 'LIVE', href: 'https://24a0.com.br',
+      slug: '24a0', asset: '24a0-selected', title: '24A0', tag: 'LIVE', href: 'https://24a0.com.br',
       pitch: ['Formula 1 race simulator that runs', 'right in the browser.'],
       chips: ['React', 'Vite', 'JavaScript'],
     },
     {
-      slug: 'erp-otica', title: 'ERP ÓTICA', tag: 'PRIVATE', href: null,
+      slug: 'erp-otica', asset: 'erp-otica-selected', title: 'ERP ÓTICA', tag: 'PRIVATE', href: null,
       pitch: ['Multi-tenant SaaS for optical retail.', 'Co-built, private repository.'],
       chips: ['NestJS hexagonal', 'Next.js 16', 'Postgres RLS'],
     },

@@ -15,6 +15,8 @@ export function cardAlt(c) {
   return `${c.title} — ${c.pitch.join(' ')} (${c.chips.join(', ')})`;
 }
 
+export const cardAsset = (c) => `assets/cards/${c.asset ?? c.slug}.svg`;
+
 export function card(c, index) {
   const tagColor = TAG_COLOR[c.tag];
   const accent = c.starred ? C.gold : C.cyan;

@@ -99,7 +99,7 @@ F4NT45TIC0/
   README.md          GERADO pelo build a partir de tools/data/profile.mjs
   assets/            SVGs GERADOS (commitados — o README aponta para eles)
     hero.svg about.svg h-projects.svg h-stack.svg stack.svg footer.svg
-    cards/{atletica,shopflow,ora-digital,dublaai,24a0,erp-otica}.svg
+    cards/{atletica-featured,shopflow-featured,ora-digital-featured,dublaai-selected,24a0-selected,erp-otica-selected}.svg
   tools/             gerador Node (não vai para o README)
     data/profile.mjs todo o conteúdo (textos, cards, links, stack) — fonte única
     lib/             text.mjs (texto→path), svg.mjs (primitivas), render.mjs (manifesto + orçamento)

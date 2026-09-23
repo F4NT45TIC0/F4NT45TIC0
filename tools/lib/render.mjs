@@ -1,7 +1,7 @@
 import { hero } from '../components/hero.mjs';
 import { about } from '../components/about.mjs';
 import { heading } from '../components/heading.mjs';
-import { card } from '../components/card.mjs';
+import { card, cardAsset } from '../components/card.mjs';
 import { stack } from '../components/stack.mjs';
 import { footer } from '../components/footer.mjs';
 import { readme } from '../components/readme.mjs';
@@ -19,7 +19,7 @@ export function renderAll(p) {
     'assets/h-stack.svg': heading('> STACK/', 'Stack'),
     'assets/stack.svg': stack(p.stack, `Stack: ${p.stack.join(', ')}`),
     'assets/footer.svg': footer(p.footer, p.footer.join(' · ')),
-    ...Object.fromEntries(p.cards.map((c, i) => [`assets/cards/${c.slug}.svg`, card(c, i)])),
+    ...Object.fromEntries(p.cards.map((c, i) => [cardAsset(c), card(c, i)])),
     'README.md': readme(p),
   };
 }
