@@ -12,7 +12,8 @@ function cardCell(c) {
 function projectIndex(cards) {
   return ['### Explore the work', ...cards.map((c) => {
     const links = [c.repo && `[code](${c.repo})`, c.href?.startsWith('https://github.com/') ? null : c.href && `[live demo](${c.href})`].filter(Boolean);
-    return `- **${c.title}** — ${c.pitch.join(' ')} ${links.length ? `(${links.join(' · ')})` : ''}`.trim();
+    const visibility = c.tag === 'PRIVATE' ? ' *(private project)*' : '';
+    return `- **${c.indexTitle ?? c.title}** — ${c.pitch.join(' ')}${visibility} ${links.length ? `(${links.join(' · ')})` : ''}`.trim();
   })].join('\n');
 }
 

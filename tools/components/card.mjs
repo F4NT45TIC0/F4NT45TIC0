@@ -12,7 +12,7 @@ function fit(width, what) {
 }
 
 export function cardAlt(c) {
-  return `${c.title} — ${c.pitch.join(' ')} (${c.chips.join(', ')})`;
+  return `${c.indexTitle ?? c.title} — ${c.pitch.join(' ')} (${c.chips.join(', ')})`;
 }
 
 export function card(c, index) {

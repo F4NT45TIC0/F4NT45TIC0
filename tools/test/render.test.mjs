@@ -24,10 +24,14 @@ test('README references every asset it ships', () => {
   }
 });
 
-test('README links live cards and leaves the private ERP unlinked', () => {
+test('README links public cards and leaves private cards unlinked', () => {
   const md = files['README.md'];
   for (const c of profile.cards.filter((c) => c.href)) assert.ok(md.includes(`<a href="${c.href}">`), c.slug);
-  assert.ok(!/<a [^>]*>\s*<img src="assets\/cards\/erp-otica\.svg"/.test(md));
+  for (const c of profile.cards.filter((c) => c.tag === 'PRIVATE')) {
+    assert.equal(c.href, null, c.slug);
+    assert.equal(c.repo, null, c.slug);
+    assert.ok(!md.includes(`<a href="${c.href}"><img src="assets/cards/${c.slug}.svg"`), c.slug);
+  }
 });
 
 test('README exposes working contact and project links as text', () => {
