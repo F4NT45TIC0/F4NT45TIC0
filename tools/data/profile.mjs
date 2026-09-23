@@ -7,18 +7,12 @@ export const profile = {
   hero: {
     name: 'FELIPE FERREIRA',
     role: 'FULL-STACK DEVELOPER  ×  DESIGNER',
-    status: 'BUILDING AT LICENZI · PRESIDENTE PRUDENTE, BR',
-    alt: 'Felipe Ferreira — full-stack developer and designer, building at Licenzi in Presidente Prudente, Brazil.',
+    status: 'ONLINE · BUILDING AT LICENZI · PRESIDENTE PRUDENTE, SP',
+    alt: 'Felipe Ferreira — full-stack developer × designer. Online, building at Licenzi, Presidente Prudente, SP.',
   },
   about: {
     title: 'ABOUT.EXE',
     alt: 'About: full-stack developer who designs — TypeScript end to end, from hexagonal NestJS backends to pixel-careful interfaces. Building at Licenzi. ADS graduate, Unoeste (2023–2026). Founder of JAW, my design brand.',
-    mobile: [
-      'Full-stack developer who designs.',
-      'TypeScript, APIs and crafted interfaces.',
-      'Building at Licenzi · based in Brazil.',
-      'Founder of JAW, my design brand.',
-    ],
     lines: [
       [{ t: '> ' }, { t: 'Full-stack developer who designs.', font: 'monoBold' }],
       [{ t: '  TypeScript end to end — hexagonal NestJS backends' }],
@@ -30,21 +24,6 @@ export const profile = {
   },
   cards: [
     {
-      slug: 'atletica', title: 'ATLÉTICA FIPP', featured: true, tag: 'REPO', href: 'https://github.com/F4NT45TIC0/atletica-fipp-site', repo: 'https://github.com/F4NT45TIC0/atletica-fipp-site',
-      pitch: ['Sales management system for a', 'university athletics club.'],
-      chips: ['Next.js', 'TypeScript', 'Supabase'],
-    },
-    {
-      slug: 'shopflow', title: 'SHOPFLOW', indexTitle: 'shopflow-automator', featured: true, tag: 'PRIVATE', href: null, repo: null,
-      pitch: ['Local toolkit for TikTok Shop content', 'planning and video workflows.'],
-      chips: ['JavaScript', 'Scheduling', 'Local-first'],
-    },
-    {
-      slug: 'ora-digital', title: 'ORA DIGITAL', indexTitle: 'ORADIGITAL', featured: true, tag: 'PRIVATE', href: null, repo: null,
-      pitch: ['Brand website with custom interactions,', 'sound design and a distinct visual system.'],
-      chips: ['Vite', 'JavaScript', 'CSS'],
-    },
-    {
       slug: 'dublaai', title: 'DUBLA AÍ', tag: 'LIVE', href: 'https://dublaai-web.vercel.app', repo: 'https://github.com/F4NT45TIC0/dublaai',
       pitch: ['In-browser dubbing studio with an honest,', 'acoustic score. Pure DSP, no backend.'],
       chips: ['TypeScript', 'DSP', 'MFCC · DTW'],
@@ -55,9 +34,24 @@ export const profile = {
       chips: ['React', 'Vite', 'JavaScript'],
     },
     {
+      slug: 'atletica', title: 'ATLÉTICA FIPP', tag: 'REPO', href: 'https://github.com/F4NT45TIC0/atletica-fipp-site', repo: 'https://github.com/F4NT45TIC0/atletica-fipp-site',
+      pitch: ['Sales management system for a', 'university athletics club.'],
+      chips: ['Next.js', 'TypeScript', 'Supabase'],
+    },
+    {
       slug: 'erp-otica', title: 'ERP ÓTICA', tag: 'PRIVATE', href: null, repo: null,
       pitch: ['Multi-tenant SaaS for optical retail.', 'Co-built, private repository.'],
       chips: ['NestJS hexagonal', 'Next.js 16', 'Postgres RLS'],
+    },
+    {
+      slug: 'shopflow', title: 'SHOPFLOW', indexTitle: 'shopflow-automator', tag: 'PRIVATE', href: null, repo: null,
+      pitch: ['Local toolkit for TikTok Shop content', 'planning and video workflows.'],
+      chips: ['JavaScript', 'Scheduling', 'Local-first'],
+    },
+    {
+      slug: 'ora-digital', title: 'ORA DIGITAL', indexTitle: 'ORADIGITAL', tag: 'PRIVATE', href: null, repo: null,
+      pitch: ['Brand website with custom interactions,', 'sound design and a distinct visual system.'],
+      chips: ['Vite', 'JavaScript', 'CSS'],
     },
   ],
   stack: ['TypeScript', 'JavaScript', 'Node.js', 'NestJS', 'Next.js', 'React', 'Vue', 'PostgreSQL', 'Prisma', 'Python', 'Figma'],

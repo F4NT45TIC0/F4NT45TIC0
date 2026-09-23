@@ -30,15 +30,10 @@ export function about({ title, lines, alt }) {
     return row.parts.map((p) => `<g fill="${C[p.fill ?? 'text']}">${p.svg}</g>`).join('');
   }).join('\n');
 
-  const defs = chromeGradient('chromeBar', { dir: 'h', soft: true }) + holoGradient('holo') + atlasDefs(atlas)
-    + `<radialGradient id="glow"><stop stop-color="${C.violet}" stop-opacity=".16"/><stop offset="1" stop-color="${C.violet}" stop-opacity="0"/></radialGradient>`;
+  const defs = chromeGradient('chromeBar', { dir: 'h', soft: true }) + holoGradient('holo') + atlasDefs(atlas);
   const body = `<path d="${chamfer(1, 1, W - 2, H - 2, 18)}" fill="${C.panel}" stroke="url(#holo)" stroke-width="2"/>
-<ellipse cx="1035" cy="170" rx="340" ry="185" fill="url(#glow)"/>
-<path d="M19 2H${W - 2}V52H2V19Z" fill="${C.void}"/>
-<path d="M20 2H470" stroke="url(#holo)" stroke-width="5"/>
-<path d="M25 52H${W - 25}" stroke="${C.cyan}" stroke-opacity=".42"/>
-<path d="M25 74V${H - 30}" stroke="${C.cyan}" stroke-opacity=".6" stroke-width="2"/>
-<path d="${head.d}" fill="url(#chromeBar)"/>
+<path d="M19 2H${W - 2}V44H2V19Z" fill="url(#chromeBar)"/>
+<path d="${head.d}" fill="${C.void}"/>
 ${windowButtons()}
 ${rows}
 <rect class="blink" x="${round1(PAD + last.width + 6)}" y="${last.y - 18}" width="12" height="22" fill="${C.cyan}"/>`;

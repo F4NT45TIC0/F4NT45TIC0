@@ -23,7 +23,7 @@ test('about rejects a line wider than the window', () => {
 });
 
 test('heading is self-contained and has its own dark background', () => {
-  const svg = heading('FEATURED WORK', 'Featured work', 'MY TOP 03 / STARRED');
+  const svg = heading('> PROJECTS/', 'Projects');
   assertSelfContained(svg, 60_000);
-  assert.ok(svg.includes('fill="#0B0B14"'));
+  assert.ok(svg.includes('fill="#05050A"'));
 });
