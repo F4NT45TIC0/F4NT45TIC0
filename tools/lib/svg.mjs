@@ -7,6 +7,7 @@ export const C = {
   violet: '#B14CFF',
   pink: '#FF5FD2',
   signal: '#39FF88',
+  gold: '#FFD36A',
 };
 
 export const round1 = (n) => Math.round(n * 10) / 10;

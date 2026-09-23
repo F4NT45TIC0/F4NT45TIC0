@@ -19,14 +19,26 @@ export const profile = {
   },
   cards: [
     {
+      slug: 'atletica', title: 'ATLÉTICA FIPP', tag: 'STARRED', starred: true,
+      href: 'https://github.com/F4NT45TIC0/atletica-fipp-site',
+      pitch: ['Sales management system for a', 'university athletics club.'],
+      chips: ['Next.js', 'TypeScript', 'Supabase'],
+    },
+    {
+      slug: 'shopflow', title: 'SHOPFLOW AUTOMATOR', titleSize: 25,
+      tag: 'STARRED', starred: true, href: null,
+      pitch: ['Local toolkit for TikTok Shop content', 'planning and video workflows. Private.'],
+      chips: ['JavaScript', 'Scheduling', 'Local-first'],
+    },
+    {
+      slug: 'ora-digital', title: 'ORADIGITAL', tag: 'STARRED', starred: true, href: null,
+      pitch: ['Private brand website with custom', 'interactions, sound and visual design.'],
+      chips: ['Vite', 'JavaScript', 'CSS'],
+    },
+    {
       slug: 'dublaai', title: 'DUBLA AÍ', tag: 'LIVE', href: 'https://dublaai-web.vercel.app',
       pitch: ['In-browser dubbing studio with an honest,', 'acoustic score. Pure DSP, no backend.'],
       chips: ['TypeScript', 'DSP', 'MFCC · DTW'],
-    },
-    {
-      slug: 'erp-otica', title: 'ERP ÓTICA', tag: 'PRIVATE', href: null,
-      pitch: ['Multi-tenant SaaS for optical retail.', 'Co-built, private repository.'],
-      chips: ['NestJS hexagonal', 'Next.js 16', 'Postgres RLS'],
     },
     {
       slug: '24a0', title: '24A0', tag: 'LIVE', href: 'https://24a0.com.br',
@@ -34,19 +46,9 @@ export const profile = {
       chips: ['React', 'Vite', 'JavaScript'],
     },
     {
-      slug: 'impostor', title: 'IMPOSTOR ONLINE', tag: 'REPO', href: 'https://github.com/F4NT45TIC0/Impostorgamefipp',
-      pitch: ['Real-time multiplayer party game,', 'each player on their own phone.'],
-      chips: ['JavaScript', 'Realtime', 'Mobile-first'],
-    },
-    {
-      slug: 'atletica', title: 'ATLÉTICA FIPP', tag: 'REPO', href: 'https://github.com/F4NT45TIC0/atletica-fipp-site',
-      pitch: ['Sales management system for a', 'university athletics club.'],
-      chips: ['Next.js', 'TypeScript', 'PostgreSQL'],
-    },
-    {
-      slug: 'inteiro-teor', title: 'INTEIRO TEOR', tag: 'LIVE', href: 'https://inteiro-teor.vercel.app',
-      pitch: ['OCR + AI text correction built', 'for notary offices.'],
-      chips: ['Tesseract.js', 'Azure Vision', 'Flask'],
+      slug: 'erp-otica', title: 'ERP ÓTICA', tag: 'PRIVATE', href: null,
+      pitch: ['Multi-tenant SaaS for optical retail.', 'Co-built, private repository.'],
+      chips: ['NestJS hexagonal', 'Next.js 16', 'Postgres RLS'],
     },
   ],
   stack: ['TypeScript', 'JavaScript', 'Node.js', 'NestJS', 'Next.js', 'React', 'Vue', 'PostgreSQL', 'Prisma', 'Python', 'Figma'],

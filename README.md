@@ -11,18 +11,18 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/F4NT45TIC0/atletica-fipp-site"><img src="assets/cards/atletica.svg" width="49%" alt="ATLÉTICA FIPP — Sales management system for a university athletics club. (Next.js, TypeScript, Supabase)" /></a>
+  <img src="assets/cards/shopflow.svg" width="49%" alt="SHOPFLOW AUTOMATOR — Local toolkit for TikTok Shop content planning and video workflows. Private. (JavaScript, Scheduling, Local-first)" />
+</p>
+
+<p align="center">
+  <img src="assets/cards/ora-digital.svg" width="49%" alt="ORADIGITAL — Private brand website with custom interactions, sound and visual design. (Vite, JavaScript, CSS)" />
   <a href="https://dublaai-web.vercel.app"><img src="assets/cards/dublaai.svg" width="49%" alt="DUBLA AÍ — In-browser dubbing studio with an honest, acoustic score. Pure DSP, no backend. (TypeScript, DSP, MFCC · DTW)" /></a>
-  <img src="assets/cards/erp-otica.svg" width="49%" alt="ERP ÓTICA — Multi-tenant SaaS for optical retail. Co-built, private repository. (NestJS hexagonal, Next.js 16, Postgres RLS)" />
 </p>
 
 <p align="center">
   <a href="https://24a0.com.br"><img src="assets/cards/24a0.svg" width="49%" alt="24A0 — Formula 1 race simulator that runs right in the browser. (React, Vite, JavaScript)" /></a>
-  <a href="https://github.com/F4NT45TIC0/Impostorgamefipp"><img src="assets/cards/impostor.svg" width="49%" alt="IMPOSTOR ONLINE — Real-time multiplayer party game, each player on their own phone. (JavaScript, Realtime, Mobile-first)" /></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/F4NT45TIC0/atletica-fipp-site"><img src="assets/cards/atletica.svg" width="49%" alt="ATLÉTICA FIPP — Sales management system for a university athletics club. (Next.js, TypeScript, PostgreSQL)" /></a>
-  <a href="https://inteiro-teor.vercel.app"><img src="assets/cards/inteiro-teor.svg" width="49%" alt="INTEIRO TEOR — OCR + AI text correction built for notary offices. (Tesseract.js, Azure Vision, Flask)" /></a>
+  <img src="assets/cards/erp-otica.svg" width="49%" alt="ERP ÓTICA — Multi-tenant SaaS for optical retail. Co-built, private repository. (NestJS hexagonal, Next.js 16, Postgres RLS)" />
 </p>
 
 <p align="center">
