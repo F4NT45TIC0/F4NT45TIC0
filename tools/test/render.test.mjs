@@ -24,20 +24,12 @@ test('README references every asset it ships', () => {
   }
 });
 
-test('README links public cards and leaves private cards unlinked', () => {
+test('README links live cards and leaves the private ERP unlinked', () => {
   const md = files['README.md'];
   for (const c of profile.cards.filter((c) => c.href)) assert.ok(md.includes(`<a href="${c.href}">`), c.slug);
-  for (const c of profile.cards.filter((c) => c.tag === 'PRIVATE')) {
-    assert.equal(c.href, null, c.slug);
-    assert.equal(c.repo, null, c.slug);
-    assert.ok(!md.includes(`<a href="${c.href}"><img src="assets/cards/${c.slug}.svg"`), c.slug);
-  }
+  assert.ok(!/<a [^>]*>\s*<img src="assets\/cards\/erp-otica\.svg"/.test(md));
 });
 
-test('README exposes working contact and project links as text', () => {
-  const md = files['README.md'];
-  assert.match(md, new RegExp(`mailto:${profile.contact.email}`));
-  assert.match(md, /### Explore the work/);
-  for (const c of profile.cards.filter((c) => c.repo)) assert.ok(md.includes(`[code](${c.repo})`), c.slug);
-  assert.match(md, /Co-built, private repository/);
+test('README keeps the contact block commented out', () => {
+  assert.match(files['README.md'], /<!-- CONTACT[\s\S]*-->/);
 });

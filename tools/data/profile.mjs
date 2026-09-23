@@ -1,9 +1,4 @@
 export const profile = {
-  intro: 'I design and build web products end to end — from APIs and data to interfaces people enjoy using. Selected public and private work below.',
-  contact: {
-    email: 'felipecarro02@gmail.com',
-    github: 'https://github.com/F4NT45TIC0',
-  },
   hero: {
     name: 'FELIPE FERREIRA',
     role: 'FULL-STACK DEVELOPER  ×  DESIGNER',
@@ -24,34 +19,34 @@ export const profile = {
   },
   cards: [
     {
-      slug: 'dublaai', title: 'DUBLA AÍ', tag: 'LIVE', href: 'https://dublaai-web.vercel.app', repo: 'https://github.com/F4NT45TIC0/dublaai',
+      slug: 'dublaai', title: 'DUBLA AÍ', tag: 'LIVE', href: 'https://dublaai-web.vercel.app',
       pitch: ['In-browser dubbing studio with an honest,', 'acoustic score. Pure DSP, no backend.'],
       chips: ['TypeScript', 'DSP', 'MFCC · DTW'],
     },
     {
-      slug: '24a0', title: '24A0', tag: 'LIVE', href: 'https://24a0.com.br', repo: 'https://github.com/F4NT45TIC0/24a0',
-      pitch: ['Formula 1 race simulator that runs', 'right in the browser.'],
-      chips: ['React', 'Vite', 'JavaScript'],
-    },
-    {
-      slug: 'atletica', title: 'ATLÉTICA FIPP', tag: 'REPO', href: 'https://github.com/F4NT45TIC0/atletica-fipp-site', repo: 'https://github.com/F4NT45TIC0/atletica-fipp-site',
-      pitch: ['Sales management system for a', 'university athletics club.'],
-      chips: ['Next.js', 'TypeScript', 'Supabase'],
-    },
-    {
-      slug: 'erp-otica', title: 'ERP ÓTICA', tag: 'PRIVATE', href: null, repo: null,
+      slug: 'erp-otica', title: 'ERP ÓTICA', tag: 'PRIVATE', href: null,
       pitch: ['Multi-tenant SaaS for optical retail.', 'Co-built, private repository.'],
       chips: ['NestJS hexagonal', 'Next.js 16', 'Postgres RLS'],
     },
     {
-      slug: 'shopflow', title: 'SHOPFLOW', indexTitle: 'shopflow-automator', tag: 'PRIVATE', href: null, repo: null,
-      pitch: ['Local toolkit for TikTok Shop content', 'planning and video workflows.'],
-      chips: ['JavaScript', 'Scheduling', 'Local-first'],
+      slug: '24a0', title: '24A0', tag: 'LIVE', href: 'https://24a0.com.br',
+      pitch: ['Formula 1 race simulator that runs', 'right in the browser.'],
+      chips: ['React', 'Vite', 'JavaScript'],
     },
     {
-      slug: 'ora-digital', title: 'ORA DIGITAL', indexTitle: 'ORADIGITAL', tag: 'PRIVATE', href: null, repo: null,
-      pitch: ['Brand website with custom interactions,', 'sound design and a distinct visual system.'],
-      chips: ['Vite', 'JavaScript', 'CSS'],
+      slug: 'impostor', title: 'IMPOSTOR ONLINE', tag: 'REPO', href: 'https://github.com/F4NT45TIC0/Impostorgamefipp',
+      pitch: ['Real-time multiplayer party game,', 'each player on their own phone.'],
+      chips: ['JavaScript', 'Realtime', 'Mobile-first'],
+    },
+    {
+      slug: 'atletica', title: 'ATLÉTICA FIPP', tag: 'REPO', href: 'https://github.com/F4NT45TIC0/atletica-fipp-site',
+      pitch: ['Sales management system for a', 'university athletics club.'],
+      chips: ['Next.js', 'TypeScript', 'PostgreSQL'],
+    },
+    {
+      slug: 'inteiro-teor', title: 'INTEIRO TEOR', tag: 'LIVE', href: 'https://inteiro-teor.vercel.app',
+      pitch: ['OCR + AI text correction built', 'for notary offices.'],
+      chips: ['Tesseract.js', 'Azure Vision', 'Flask'],
     },
   ],
   stack: ['TypeScript', 'JavaScript', 'Node.js', 'NestJS', 'Next.js', 'React', 'Vue', 'PostgreSQL', 'Prisma', 'Python', 'Figma'],

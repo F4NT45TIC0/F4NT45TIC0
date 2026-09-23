@@ -10,17 +10,11 @@ identidade principal. Quem abrir o perfil (recrutador, cliente da JAW, outro dev
 precisa entender em 10 segundos: quem é, onde trabalha, o que já construiu.
 
 **Sucesso =** README de perfil publicado e renderizando igual no tema claro e escuro
-do GitHub, no desktop e no celular; bio/empresa/local preenchidos; seis projetos
-na vitrine do README, com links apenas para os projetos públicos.
+do GitHub, no desktop e no celular; bio/empresa/local preenchidos; 6 repositórios
+de vitrine com descrição, topics e link; 6 repositórios fixados.
 
 **Fora do escopo:** reescrever o README de cada projeto; estatísticas ao vivo
-(abordagem C, fica para depois).
-
-**Estado em 2026-09-23:** README e contato publicados; bio, empresa, localização e
-descrição do repositório atualizados. A branch padrão é `main`. A seleção dos
-repositórios fixados ainda precisa ser salva pela interface do GitHub. Entre os
-seis destaques escolhidos, só Dubla Aí, 24A0 e Atlética FIPP são públicos e
-elegíveis para pins; os outros três aparecem apenas no README.
+(abordagem C, fica para depois); bloco de contatos ativo (ainda não há links).
 
 ## 2. Abordagem escolhida — A: SVGs autorais versionados
 
@@ -77,21 +71,21 @@ Conteúdo principal em inglês + uma linha em português no `about`.
    - Currently building at **Licenzi**. ADS graduate, **Unoeste** (2023–2026).
    - Founder of **JAW**, my design brand.
    - 🇧🇷 Dev full-stack e designer. Construo produto do banco de dados ao pixel.
-3. **`> projects/`** (cabeçalho `assets/h-projects.svg` + 6 cards `assets/cards/*.svg`, 2 por linha;
-   cards privados sem link):
+3. **`> projects/`** (cabeçalho `assets/h-projects.svg` + 6 cards `assets/cards/*.svg`, 2 por linha,
+   cada card é link):
 
    | Card | Pitch (EN) | Chips | Link |
    |---|---|---|---|
    | Dubla Aí | In-browser dubbing studio with an honest acoustic score | TypeScript · DSP · MFCC/DTW · no backend | dublaai-web.vercel.app |
+   | ERP Ótica 🔒 | Multi-tenant SaaS for optical retail — private, co-built | NestJS (hexagonal) · Next.js 16 · PostgreSQL RLS · Prisma | sem link |
    | 24a0 | Formula 1 race simulator on the web | React · Vite | 24a0.com.br |
-   | Atlética FIPP | Sales management for a university athletics club | Next.js · TypeScript · Supabase | repo |
-   | ERP Ótica 🔒 | Multi-tenant SaaS for optical retail — private, co-built | NestJS (hexagonal) · Next.js 16 · PostgreSQL RLS | sem link |
-   | shopflow-automator 🔒 | Local toolkit for TikTok Shop content planning and video workflows | JavaScript · Scheduling · Local-first | sem link |
-   | ORADIGITAL 🔒 | Brand website with custom interactions and sound design | Vite · JavaScript · CSS | sem link |
+   | Impostor Online | Real-time multiplayer party game for phones | JavaScript · realtime | repo |
+   | Atlética FIPP | Sales management for a university athletics club | Next.js · TypeScript · PostgreSQL | repo |
+   | Inteiro Teor | OCR + AI text correction for notary offices | Tesseract.js · Azure Vision · Flask | inteiro-teor.vercel.app |
 
 4. **`> stack/`** (`assets/stack.svg`): chips cromados — TypeScript, JavaScript, Node.js, NestJS,
    Next.js, React, Vue, PostgreSQL, Prisma, Python, Figma.
-5. **Contato e índice em texto:** e-mail público e GitHub logo após o hero; abaixo dos cards, cada projeto tem descrição e links diretos para código e demo. Isso mantém o overview legível no celular e acessível mesmo quando os SVGs não carregam.
+5. **`> contact/`**: bloco pronto, **comentado** (`<!-- -->`) até existirem os links.
 6. **Rodapé** (`assets/footer.svg`): marquee `✦ NOW LOADING THE FUTURE ✦ BUILT BY JAW ✦`.
 
 Layout em Markdown/HTML permitido pelo GitHub: `<p align="center">`, `<a><img width="49%"></a>`
@@ -104,7 +98,7 @@ F4NT45TIC0/
   README.md          GERADO pelo build a partir de tools/data/profile.mjs
   assets/            SVGs GERADOS (commitados — o README aponta para eles)
     hero.svg about.svg h-projects.svg h-stack.svg stack.svg footer.svg
-    cards/{dublaai,24a0,atletica,erp-otica,shopflow,ora-digital}.svg
+    cards/{dublaai,erp-otica,24a0,impostor,atletica,inteiro-teor}.svg
   tools/             gerador Node (não vai para o README)
     data/profile.mjs todo o conteúdo (textos, cards, links, stack) — fonte única
     lib/             text.mjs (texto→path), svg.mjs (primitivas), render.mjs (manifesto + orçamento)
@@ -129,9 +123,10 @@ Toda ação que publica ou altera conta é executada **só após OK explícito d
   company `Licenzi`, location `Presidente Prudente, SP`, blog vazio, hireable `false`.
   ⚠️ O token atual do `gh` não tem o escopo `user`; o Felipe precisa rodar
   `gh auth refresh -h github.com -s user` (abre o navegador) antes deste passo.
-- **Fixados:** não há API pública de escrita para pins — manual pelo Felipe
-  ("Customize your pins"): `dublaai`, `24a0`, `atletica-fipp-site`. Repositórios
-  privados não são elegíveis para pins nativos do GitHub.
+- **Vitrine** via `gh repo edit`: descrição em inglês, topics e homepage em
+  `dublaai`, `24a0`, `Impostorgamefipp`, `atletica-fipp-site`, `InteiroTeor`, `CurriculoWebDesign`.
+- **Fixados:** não há API — manual pelo Felipe ("Customize your pins"):
+  `dublaai`, `24a0`, `Impostorgamefipp`, `atletica-fipp-site`, `InteiroTeor`, `CurriculoWebDesign`.
 
 ## 7. Verificação
 
@@ -139,4 +134,4 @@ Toda ação que publica ou altera conta é executada **só após OK explícito d
 2. README renderizado pelo próprio GitHub (`gh api markdown`) numa página local com o CSS oficial
    (`github-markdown-css`), alternando claro, escuro e 375 px.
 3. Depois do push: conferir o perfil real no navegador (claro/escuro/mobile) e o peso dos assets.
-4. Conferir que nenhum código, cliente ou credencial dos três projetos privados aparece no README.
+4. Conferir que nenhum dado privado do ERP (código, cliente, credencial) aparece — só stack e papel.
