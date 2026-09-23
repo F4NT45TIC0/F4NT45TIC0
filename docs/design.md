@@ -14,7 +14,11 @@ do GitHub, no desktop e no celular; bio/empresa/local preenchidos; 6 repositóri
 de vitrine com descrição, topics e link; 6 repositórios fixados.
 
 **Fora do escopo:** reescrever o README de cada projeto; estatísticas ao vivo
-(abordagem C, fica para depois); bloco de contatos ativo (ainda não há links).
+(abordagem C, fica para depois).
+
+**Estado em 2026-09-23:** README e contato publicados; bio, empresa, localização e
+descrição do repositório atualizados. A branch padrão é `main`. A seleção dos
+repositórios fixados ainda precisa ser salva pela interface do GitHub.
 
 ## 2. Abordagem escolhida — A: SVGs autorais versionados
 
